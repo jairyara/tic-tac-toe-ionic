@@ -1,2 +1,15 @@
-/* For information on how to create your own theme, please see:
-http://ionicframework.com/docs/theming/ */
+:root {
+    /* Light Theme */
+    --background: #f0f0f0;
+    --text: #333;
+    --text-light: #666;
+    --jungle-green: #28af60;
+    --curious-blue: #3398db;
+
+    /* Dark Theme */
+    --background-dark: #2b3d4f;
+    --text-dark: #f0f0f0;
+    --text-light-dark: #b0b0b0;
+    --jungle-green-dark: #33cc99;
+    --curious-blue-dark: #6699ff;
+}
