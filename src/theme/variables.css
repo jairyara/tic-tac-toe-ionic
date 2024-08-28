@@ -5,6 +5,9 @@
     --text-light: #666;
     --jungle-green: #28af60;
     --curious-blue: #3398db;
+    --atomic-tangerine: #ff6f61;
+    --bittersweet: #e74d3c;
+    --supernova: #ff9c12;
 
     /* Dark Theme */
     --background-dark: #2b3d4f;
@@ -12,4 +15,7 @@
     --text-light-dark: #b0b0b0;
     --jungle-green-dark: #33cc99;
     --curious-blue-dark: #6699ff;
+    --atomic-tangerine-dark: #ff9966;
+    --bittersweet-dark: #ff6666;
+    --supernova-dark: #ffcc33;
 }

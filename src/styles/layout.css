@@ -1,10 +1,36 @@
 .layout {
-    background: var(--background);
     height: 100vh;
+}
+
+.layout.light-theme {
+    background: var(--background);
+    color: var(--text);
 }
 
 .layout .layout__content {
     height: calc(100vh - 160px);
     overflow-y: scroll;
     padding: 20px 20px 0;
+}
+
+
+.layout.dark-theme {
+    color: var(--text-dark);
+    background: var(--background-dark);
+}
+
+.layout .error-message {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.layout.light-theme .error-message {
+    background: var(--bittersweet);
+    color: var(--text-dark);
+}
+
+.layout.dark-theme .error-message {
+    background: var(--bittersweet-dark);
+    color: var(--text-dark);
 }
