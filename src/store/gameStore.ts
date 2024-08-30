@@ -1,4 +1,4 @@
-import create from 'zustand';
+import {create} from 'zustand';
 
 interface GameState {
     player1: string;
@@ -16,6 +16,7 @@ interface GameState {
 
     resetGame: () => void;
     makeMove: (index: number) => void;
+    resetStats: () => void;
 }
 
 const useStore = create<GameState>((set) => ({
@@ -25,7 +26,7 @@ const useStore = create<GameState>((set) => ({
     setPlayer2: (name) => set({player2: name}),
 
     board: Array(9).fill(null),
-    currentPlayer: 'X',
+    currentPlayer: 'O',
     winner: null,
     turn: 0,
 
@@ -38,13 +39,19 @@ const useStore = create<GameState>((set) => ({
         winner: null, turn: 0
     }),
 
+    resetStats: () => set({
+        winsPlayer1: 0,
+        winsPlayer2: 0,
+        draws: 0,
+    }),
+
     makeMove: (index) => set((state) => {
         const newBoard = [...state.board];
         if (!newBoard[index] && !state.winner) {
             newBoard[index] = state.currentPlayer;
             const winner = calculateWinner(newBoard);
             if (winner) {
-                if (state.currentPlayer === 'X') {
+                if (state.currentPlayer === 'O') {
                     return {
                         board: newBoard,
                         winner: state.player1,
@@ -57,7 +64,7 @@ const useStore = create<GameState>((set) => ({
                         winsPlayer2: state.winsPlayer2 + 1
                     };
                 }
-            } else if (state.turn === 9) {
+            } else if (state.turn === 8) {
                 return {
                     board: newBoard,
                     winner: 'Draw',
