@@ -84,10 +84,13 @@
     align-items: center;
 }
 
-.layout.light-theme .board .square:nth-child(2), .layout.light-theme .board .square:nth-child(5) {
+.layout.light-theme .board .square:nth-child(2) {
     border-left: 1px solid var(--text-light);
     border-right: 1px solid var(--text-light);
-    border-bottom: 1px solid var(--text-light);
+}
+
+.layout.light-theme .board .square:nth-child(5) {
+    border: 1px solid var(--text-light);
 }
 
 .layout.light-theme .board .square:nth-child(4), .layout.light-theme .board .square:nth-child(6) {
@@ -100,10 +103,13 @@
     border-right: 1px solid var(--text-light);
 }
 
-.layout.dark-theme .board .square:nth-child(2), .layout.dark-theme .board .square:nth-child(5) {
+.layout.dark-theme .board .square:nth-child(2) {
     border-left: 1px solid var(--text-light-dark);
     border-right: 1px solid var(--text-light-dark);
-    border-bottom: 1px solid var(--text-light-dark);
+}
+
+ .layout.dark-theme .board .square:nth-child(5) {
+    border: 1px solid var(--text-light-dark);
 }
 
 .layout.dark-theme .board .square:nth-child(4), .layout.dark-theme .board .square:nth-child(6) {
@@ -212,6 +218,7 @@
 }
 
 .game-options p {
+    padding: 0 1rem;
     font-size: 1rem;
     min-width: 80px;
     height: 50px;
@@ -220,11 +227,6 @@
     justify-content: center;
     border: 1px solid var(--text-light);
     border-radius: 30px;
-}
-
-.winner-banner {
-    margin-top: 2rem;
-    text-align: center;
 }
 
 .footer {

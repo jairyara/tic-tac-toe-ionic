@@ -34,7 +34,6 @@ const Home: React.FC = () => {
                     Iniciar juego
                 </button>
             </section>
-
         </Layout>
     );
 };
