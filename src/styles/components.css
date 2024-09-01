@@ -229,6 +229,70 @@
     border-radius: 30px;
 }
 
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 70%;
+    height: auto;
+    aspect-ratio: 1/1;
+}
+
+.select-mode h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem !important;
+    text-align: center;
+}
+
+.select-mode p {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1rem !important;
+}
+
+.select-mode .select-mode__options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.select-mode .select-mode__btn{
+    width: 50%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    gap: 1rem;
+}
+
+.select-mode .select-mode__icon {
+    font-size: 1.5rem;
+}
+
+.layout.light-theme .select-mode .select-mode__btn--ia {
+    background: var(--curious-blue);
+}
+
+.layout.dark-theme .select-mode .select-mode__btn--ia {
+    background: var(--curious-blue-dark);
+}
+
+.layout.light-theme .select-mode .select-mode__btn--human {
+    background: var(--jungle-green);
+}
+
+.layout.dark-theme .select-mode .select-mode__btn--human {
+    background: var(--jungle-green-dark);
+}
+
 .footer {
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     height: 80px;

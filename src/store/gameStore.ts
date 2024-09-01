@@ -14,12 +14,16 @@ interface GameState {
     winsPlayer2: number;
     draws: number;
 
+    mode: 'PvP' | 'PvAI';
+    setMode: (mode: 'PvP' | 'PvAI') => void;
+
     resetGame: () => void;
     makeMove: (index: number) => void;
     resetStats: () => void;
+    aiMove: () => void;
 }
 
-const useStore = create<GameState>((set) => ({
+const useStore = create<GameState>((set, get) => ({
     player1: '',
     player2: '',
     setPlayer1: (name) => set({player1: name}),
@@ -33,6 +37,9 @@ const useStore = create<GameState>((set) => ({
     winsPlayer1: 0,
     winsPlayer2: 0,
     draws: 0,
+
+    mode: 'PvP',
+    setMode: (mode) => set({ mode, board: Array(9).fill(null), winner: null, turn: 0, currentPlayer: 'O' }),
 
     resetGame: () => set({
         board: Array(9).fill(null),
@@ -71,6 +78,10 @@ const useStore = create<GameState>((set) => ({
                     draws: state.draws + 1
                 }
             } else {
+                const nextPlayer = state.currentPlayer === 'X' ? 'O' : 'X';
+                if (state.mode === 'PvAI' && nextPlayer === 'X') {
+                    setTimeout(get().aiMove, 500);
+                }
                 return {
                     board: newBoard,
                     currentPlayer: state.currentPlayer === 'X' ? 'O' : 'X',
@@ -79,7 +90,16 @@ const useStore = create<GameState>((set) => ({
             }
         }
         return state;
-    })
+    }),
+
+    aiMove: () => {
+        const { board, makeMove } = get();
+        const emptyIndices = board.map((value, index) => (value === null ? index : -1)).filter((index) => index !== -1);
+        if (emptyIndices.length > 0) {
+            const randomIndex = emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
+            makeMove(randomIndex);
+        }
+    },
 }));
 
 const calculateWinner = (squares: (string | null)[]): string | null => {
@@ -95,7 +115,6 @@ const calculateWinner = (squares: (string | null)[]): string | null => {
             return squares[a];
         }
     }
-
     return null;
 }
 

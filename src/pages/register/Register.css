@@ -23,7 +23,7 @@
     margin-top: 1rem;
 }
 
-.layout .btn-action {
+.layout .btn-action, .layout .btn-home {
     min-width: 200px;
     max-height: 50px;
     padding: 1rem 2rem;
@@ -36,6 +36,20 @@
 .layout.light-theme .btn-action {
     background: var(--atomic-tangerine);
     color: var(--text-dark);
+}
+
+.layout.light-theme .btn-home {
+    background: var(--background);
+    color: var(--text);
+    border: 1px solid var(--text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.layout.light-theme input.disabled, .layout.dark-theme input.disabled {
+    background: var(--text-light-dark);
 }
 
 .layout.dark-theme .btn-action {
