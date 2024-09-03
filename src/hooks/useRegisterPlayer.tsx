@@ -12,7 +12,10 @@ export const useRegisterPlayer = () => {
     const [error, setError] = useState<string>('');
 
     const handleStartGame = () => {
-        if (mode === 'PvAI') {
+        if (!name1) {
+            setError('El nombre del jugador 1 es requerido');
+            return;
+        } else if (mode === 'PvAI') {
             setPlayer1(name1);
             setPlayer2('IA');
             history.push('/game');

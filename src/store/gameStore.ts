@@ -41,10 +41,11 @@ const useStore = create<GameState>((set, get) => ({
     mode: 'PvP',
     setMode: (mode) => set({ mode, board: Array(9).fill(null), winner: null, turn: 0, currentPlayer: 'O' }),
 
-    resetGame: () => set({
+    resetGame: () => set((state) => ({
         board: Array(9).fill(null),
-        winner: null, turn: 0
-    }),
+        winner: null, turn: 0,
+        currentPlayer: 'O',
+    })),
 
     resetStats: () => set({
         winsPlayer1: 0,

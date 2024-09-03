@@ -8,7 +8,7 @@ import { CurrentPlayer } from "../../components/CurrentPlayer";
 import { CurrentPlayerName } from "../../components/CurrentPlayerName";
 
 export const Game: React.FC = () => {
-    const {player1, player2, resetGame, winner } = gameStore((state) => state);
+    const {player1, player2, resetGame, winner, currentPlayer } = gameStore((state) => state);
 
     return(
         <Layout title={`${player1} vs ${player2}`}>

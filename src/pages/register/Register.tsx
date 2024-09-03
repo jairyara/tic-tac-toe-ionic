@@ -9,7 +9,6 @@ const Home: React.FC = () => {
     const {name1, name2, error, setName1, setName2, handleStartGame, handleGoHome} = useRegisterPlayer();
     const {mode} = gameStore((state) => state);
 
-
     return (
         <Layout title="Registrar jugadores">
             <h2>Configurar nombres de jugadores</h2>
